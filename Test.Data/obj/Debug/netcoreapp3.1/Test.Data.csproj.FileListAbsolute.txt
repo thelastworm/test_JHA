@@ -1,0 +1,15 @@
+C:\Users\jalaa\source\repos\Test\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.deps.json
+C:\Users\jalaa\source\repos\Test\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.dll
+C:\Users\jalaa\source\repos\Test\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.pdb
+C:\Users\jalaa\source\repos\Test\Test.Data\bin\Debug\netcoreapp3.1\Test.Core.dll
+C:\Users\jalaa\source\repos\Test\Test.Data\bin\Debug\netcoreapp3.1\Test.Core.pdb
+C:\Users\jalaa\source\repos\Test\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.csprojAssemblyReference.cache
+C:\Users\jalaa\source\repos\Test\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.AssemblyInfoInputs.cache
+C:\Users\jalaa\source\repos\Test\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.AssemblyInfo.cs
+C:\Users\jalaa\source\repos\Test\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.csproj.CopyComplete
+C:\Users\jalaa\source\repos\Test\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.dll
+C:\Users\jalaa\source\repos\Test\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.pdb
+C:\Users\jalaa\source\repos\Test\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.runtimeconfig.json
+C:\Users\jalaa\source\repos\Test\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.runtimeconfig.dev.json
+C:\Users\jalaa\source\repos\Test\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.genruntimeconfig.cache
+C:\Users\jalaa\source\repos\Test\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.csproj.CoreCompileInputs.cache

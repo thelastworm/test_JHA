@@ -8,7 +8,7 @@ namespace Test.Data
 {
     public interface ITaskData
     {
-        Task<List<Core.Task>> GetAllAsync(string search, int? softwareengineerId);
+        Task<List<Core.Task>> GetAllAsync(string search);
         Task<Core.Task> GetTaskAsync(int id);
         void Add(Core.Task task);
         void Update(Core.Task task);

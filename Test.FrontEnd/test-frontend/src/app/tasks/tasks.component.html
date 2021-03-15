@@ -1,0 +1,113 @@
+  <div class="container-lg">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <h2>Tasks</h2>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="input-group rounded">
+                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                              aria-describedby="search-addon" [(ngModel)]="searchTearm" (ngModelChange)="searchMethod($event)"/>
+                             
+                          </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-info add-new" data-toggle="modal"
+                             (click)="open(content)"><i class="fa fa-plus"></i> Add New</button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Software engineer</th>
+                        <th>Task Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th style="width: auto;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let task of tasks">
+                        <td>{{task.id}}</td>
+                        <td>{{task.softwareEngineerFirstName}} {{task.softwareEngineerLastName}}</td>
+                        <td>{{task.name}}</td>
+                        <td>{{task.type}}</td>
+                        <td>{{task.description}}</td>
+
+                        <td>
+                            <a class="edit" style="color:blue" title="Add" data-toggle="tooltip" [routerLink]="['/task', task.id]"><i class="material-icons">
+                                &#xE03B;</i></a>
+                            <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">
+                                    &#xE254;</i></a>
+                            <a class="delete" color="red" title="Delete" data-toggle="tooltip"><i class="material-icons"
+                                    (click)="delete(task)">&#xE872;</i></a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>  
+
+ 
+ 
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Task</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form (ngSubmit)="add()" [formGroup]="taskForm">
+            <div class="form-group">
+                <label for="name">Task name</label>
+                <input type="text" class="form-control" id="name" placeholder="name required"
+                    formControlName="name" required maxlength="100" minlength="3"
+                    [ngClass]="{'is-invalid': (taskForm.get('name')!.touched || taskForm.get('name')!.dirty) && !taskForm.get('name')!.valid }" />
+            </div>
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select class="form-control" id="type" formControlName="type" required
+                    [ngClass]="{'is-invalid': (taskForm.get('type')!.touched || taskForm.get('type')!.dirty) && !taskForm.get('type')!.valid }">
+                    <option value="">options</option>
+                    <option value="Front-end">Front-end</option>
+                    <option value="Back-end">Back-end</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea type="text" class="form-control" id="description" placeholder="Description required"
+                    formControlName="description" required maxlength="500" minlength="3"
+                    [ngClass]="{'is-invalid': (taskForm.get('description')!.touched || taskForm.get('description')!.dirty) && !taskForm.get('description')!.valid }">
+                </textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="softwareengineerid">Assigned For softwareenginner</label>
+                <select class="form-control" id="softwareengineerid" formControlName="softwareengineerid" required  
+                    [ngClass]="{'is-invalid': (taskForm.get('softwareengineerid')!.touched || taskForm.get('softwareengineerid')!.dirty) && !taskForm.get('softwareengineerid')!.valid }">
+                    <option value="">Chosee softwareEngineer</option>
+                    <option *ngFor="let softwreengineer of softwreengineers" [value]="softwreengineer.id">{{softwreengineer.firstName}} {{softwreengineer.lastName}}</option>
+                     
+                </select>
+            </div>
+            <div style="float: right;">
+            <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cross click')" >Close</button>
+
+        <button type="submit" class="btn btn-info" (click)="modal.close('Save click')" [disabled]="!taskForm.valid" style="margin-left:10px">Save changes</button>
+    </div>    
+    </form>
+    </div>
+    <div class="modal-footer">
+        
+    </div>
+  </ng-template>
+  

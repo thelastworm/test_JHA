@@ -18,9 +18,9 @@ namespace Test.Models
         [Required]
         [StringLength(500)]
         public string Description { get; set; }
-        public int SoftwareEnginnerId { get; set; }
-        public string SoftwareEnginnerFirstName { get; set; }
-        public string SoftwareEnginnerLastName { get; set; }
-        public ICollection<TaskDetailsModel> Tasks { get; set; }
+        public int SoftwareEngineerId { get; set; }
+        public string SoftwareEngineerFirstName { get; set; }
+        public string SoftwareEngineerLastName { get; set; }
+        public ICollection<TaskDetailsModel> TaskDetails { get; set; }
     }
 }

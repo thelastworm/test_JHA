@@ -29,18 +29,16 @@ namespace test.data
             _db.Remove(task);
         }
 
-        public async Task<List<Test.Core.Task>> GetAllAsync(string search, int? softwareengineerId)
+        public async Task<List<Test.Core.Task>> GetAllAsync(string search)
         {
-            if (softwareengineerId != null)
-                return await _db.Tasks.Include(i=> i.Employee).Include(i => i.Tasks).Where( i => i.AssignedForId==softwareengineerId && (i.Type.Contains(search) || i.Name.Contains(search) || search == null)).ToListAsync();
-            else
-                return await _db.Tasks.Include(i => i.Employee).Include(i => i.Tasks).Where(i => i.Type.Contains(search) || i.Name.Contains(search) || search == null).ToListAsync();
+
+            return await _db.Tasks.Include(i => i.Employee).Include(i => i.TaskDetails).Where(i => i.Employee.FirstName.Contains(search) || i.Employee.LastName.Contains(search) || i.Type.Contains(search) || i.Name.Contains(search) || search == null).ToListAsync();
 
         }
 
         public Task<Test.Core.Task> GetTaskAsync(int id)
         {
-            return   _db.Tasks.Where(i => i.Id == id).FirstOrDefaultAsync();
+            return _db.Tasks.Where(i => i.Id == id).FirstOrDefaultAsync();
 
         }
 
@@ -56,6 +54,6 @@ namespace test.data
     }
 }
 
-        
-       
- 
+
+
+

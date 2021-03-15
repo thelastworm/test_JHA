@@ -8,7 +8,7 @@ namespace Test.Data
 {
     public interface IEmployeeData
     {
-        Task<List<Employee>> GetAllAsync(string search);
+        Task<List<Employee>> GetAllAsync(string search, string roleId);
         Task<Employee> GetEmployeeAsync(int id);
         void Add(Employee employee);
         void Update(Employee employee);

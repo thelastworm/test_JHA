@@ -32,7 +32,7 @@ namespace test.data
         public async Task<IEnumerable<TaskDetails>> GetAllAsync(string search, int? taskId)
         {
             if (taskId != null)
-                return await _db.TaskDetails.Where(i => (i.Description.Contains(search) && i.TaskId == taskId) || (search == null && i.TaskId == taskId)).ToListAsync();
+                return await _db.TaskDetails.Where(i => (i.Description.Contains(search) && i.TaskId == taskId) || (search == null || i.TaskId == taskId)).ToListAsync();
             else
                 return await _db.TaskDetails.Where(i => (i.Description.Contains(search)) || search == null).ToListAsync();
 

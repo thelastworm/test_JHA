@@ -22,7 +22,7 @@ namespace Test.Core
         [ForeignKey("AssignedForId")]
         public Employee Employee { get; set; }
 
-        public ICollection<TaskDetails> Tasks { get; set; }
+        public ICollection<TaskDetails> TaskDetails { get; set; }
 
 
     }

@@ -14,12 +14,12 @@ namespace Test
         {
             this.CreateMap<Employee, EmployeeModel>();
             this.CreateMap<EmployeeModel, Employee>();
-            this.CreateMap<Core.Task, TaskModel>().ForMember(e => e.SoftwareEnginnerFirstName, o => o.MapFrom(m => m.Employee.FirstName))
-                                                  .ForMember(e => e.SoftwareEnginnerLastName, o => o.MapFrom(m => m.Employee.LastName))
-                                                  .ForMember(e => e.SoftwareEnginnerId, o => o.MapFrom(m => m.AssignedForId));
+            this.CreateMap<Core.Task, TaskModel>().ForMember(e => e.SoftwareEngineerFirstName, o => o.MapFrom(m => m.Employee.FirstName))
+                                                  .ForMember(e => e.SoftwareEngineerLastName, o => o.MapFrom(m => m.Employee.LastName))
+                                                  .ForMember(e => e.SoftwareEngineerId, o => o.MapFrom(m => m.AssignedForId));
                                                   
 
-            this.CreateMap<TaskModel,Core.Task > ().ForMember(e => e.AssignedForId, o => o.MapFrom(m => m.SoftwareEnginnerId));
+            this.CreateMap<TaskModel,Core.Task > ().ForMember(e => e.AssignedForId, o => o.MapFrom(m => m.SoftwareEngineerId));
 
             this.CreateMap<TaskDetailsModel, TaskDetails>();
             this.CreateMap<TaskDetails,TaskDetailsModel>();

@@ -19,6 +19,8 @@ namespace Test
 {
     public class Startup
     {
+
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,6 +31,17 @@ namespace Test
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+                                  });
+            });
+        
+
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             services.AddDbContextPool<TestDbContext>(options =>
@@ -38,29 +51,29 @@ namespace Test
             services.AddScoped<ITaskData, test.data.Taskdata>();
             services.AddScoped<ITaskDetailsData, TaskDetailsData>();
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
 
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseDeveloperExceptionPage();
         }
+
+        app.UseHttpsRedirection();
+
+        app.UseRouting();
+        app.UseCors();
+        app.UseAuthorization();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
     }
+}
 }

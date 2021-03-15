@@ -9,3 +9,4 @@ C:\Users\jalaa\source\repos\Test\Test.Core\bin\Debug\netcoreapp3.1\Test.Core.pdb
 C:\Users\jalaa\source\repos\Test\Test.Core\obj\Debug\netcoreapp3.1\Test.Core.dll
 C:\Users\jalaa\source\repos\Test\Test.Core\obj\Debug\netcoreapp3.1\Test.Core.pdb
 C:\Users\jalaa\source\repos\Test\Test.Core\obj\Debug\netcoreapp3.1\Test.Core.csproj.CoreCompileInputs.cache
+C:\Users\jalaa\source\repos\Test\Test.Core\obj\Debug\netcoreapp3.1\Test.Core.csprojAssemblyReference.cache

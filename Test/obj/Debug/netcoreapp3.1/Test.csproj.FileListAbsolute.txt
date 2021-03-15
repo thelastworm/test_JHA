@@ -67,5 +67,8 @@ C:\Users\jalaa\source\repos\Test\Test\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\jalaa\source\repos\Test\Test\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\jalaa\source\repos\Test\Test\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\jalaa\source\repos\Test\Test\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\jalaa\source\repos\Test\Test\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\jalaa\source\repos\Test\Test\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\jalaa\source\repos\Test\Test\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\jalaa\source\repos\Test\Test\obj\Debug\netcoreapp3.1\Test.csproj.CoreCompileInputs.cache
 C:\Users\jalaa\source\repos\Test\Test\obj\Debug\netcoreapp3.1\Test.MvcApplicationPartsAssemblyInfo.cache

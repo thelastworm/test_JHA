@@ -1,0 +1,83 @@
+  <div class="container-lg">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h2>Task Details</h2>
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-info add-new" data-toggle="modal"
+                             (click)="open(content)"><i class="fa fa-plus"></i> Add New</button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Description</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let detail of taskDetails">
+                        <td>{{detail.id}}</td>
+                        <td>{{detail.description}}</td>
+                        <td>{{detail.startDate | date:'short'}}</td>
+                        <td>{{detail.endDate | date:'short'}}</td>
+
+                         
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>  
+ 
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add Task Detail</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form (ngSubmit)="add()" [formGroup]="taskDetailsForm">
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea type="text" class="form-control" id="description" placeholder="name required"
+                    formControlName="description" required maxlength="100" minlength="3"
+                    [ngClass]="{'is-invalid': (taskDetailsForm.get('description')!.touched || taskDetailsForm.get('description')!.dirty) && !taskDetailsForm.get('description')!.valid }">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <input type="datetime-local" class="form-control" id="startDate" placeholder="startDate required"
+                    formControlName="startDate" required maxlength="100" minlength="3"
+                    [ngClass]="{'is-invalid': (taskDetailsForm.get('startDate')!.touched || taskDetailsForm.get('startDate')!.dirty) && !taskDetailsForm.get('startDate')!.valid }" />
+            </div>
+            <div class="form-group">
+                <label for="endDate">End Date</label>
+                <input type="datetime-local" class="form-control" id="endDate" placeholder="endDate required"
+                    formControlName="endDate" required maxlength="100" minlength="3"
+                    [ngClass]="{'is-invalid': (taskDetailsForm.get('endDate')!.touched || taskDetailsForm.get('endDate')!.dirty) && !taskDetailsForm.get('endDate')!.valid }" />
+            </div>
+            
+             
+             
+            <div style="float: right;">
+            <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cross click')" >Close</button>
+
+        <button type="submit" class="btn btn-info" (click)="modal.close('Save click')" [disabled]="!taskDetailsForm.valid" style="margin-left:10px">Save changes</button>
+    </div>    
+    </form>
+    </div>
+    <div class="modal-footer">
+        
+    </div>
+  </ng-template>
+    

@@ -32,11 +32,14 @@ namespace Test.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<TaskModel[]>> Get(string search = null, int? softwareengineerId=null)
+        public async Task<ActionResult<TaskModel[]>> Get(string search = null)
         {
             try
             {
-                var results = await _repository.GetAllAsync(search,softwareengineerId);
+
+                
+                   var results = await _repository.GetAllAsync(search);
+
                 TaskModel[] models = _mapper.Map<TaskModel[]>(results);
                 return models;
             }
@@ -79,13 +82,13 @@ namespace Test.Controllers
                     return Created($"/api/task/{task.Id}", _mapper.Map<TaskModel>(task));
                 }
 
-        }
+            }
             catch (Exception)
             {
 
                 return this.StatusCode(StatusCodes.Status500InternalServerError);
 
-    }
+            }
 
             return BadRequest();
         }
@@ -141,6 +144,9 @@ namespace Test.Controllers
             }
             return BadRequest("Failed to delete");
         }
+
+
+
 
 
     }

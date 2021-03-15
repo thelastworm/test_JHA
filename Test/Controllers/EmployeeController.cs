@@ -32,11 +32,11 @@ namespace Test.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<EmployeeModel[]>> Get(string search = null)
+        public async Task<ActionResult<EmployeeModel[]>> Get(string search = null, string roleId = null)
         {
             try
             {
-                List<Employee> results = await _repository.GetAllAsync(search);
+                List<Employee> results = await _repository.GetAllAsync(search, roleId);
                 EmployeeModel[] models = _mapper.Map<EmployeeModel[]>(results);
                 return models;
             }
@@ -61,6 +61,9 @@ namespace Test.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+
+
+        
 
         [HttpPost]
         public async Task<ActionResult<EmployeeModel>> Post(EmployeeModel model)
@@ -141,7 +144,6 @@ namespace Test.Controllers
             }
             return BadRequest("Failed to delete");
         }
-
 
     }
 }

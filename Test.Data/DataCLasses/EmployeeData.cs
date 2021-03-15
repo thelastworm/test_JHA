@@ -29,20 +29,32 @@ namespace test.data
             _db.Remove(employee);
         }
 
-        public async Task<List<Employee>> GetAllAsync(string search)
+        public async Task<List<Employee>> GetAllAsync(string search, string roleId)
         {
-            return await _db.Employees.Where( i => i.FirstName.Contains(search) || i.LastName.Contains(search) || search == null).ToListAsync();
+            if (roleId != null)
+            {
+                RoleType role;
+                Enum.TryParse(roleId, out role);
+                return await _db.Employees.Where(i => (i.FirstName.Contains(search) && i.Role == role) || (i.LastName.Contains(search) && i.Role == role) || (search == null || i.Role == role)).ToListAsync();
+
+            }
+            else
+            {
+                return await _db.Employees.Where(i => (i.FirstName.Contains(search) ) || (i.LastName.Contains(search)) || (search == null)).ToListAsync();
+
+            }
+
         }
 
         public Task<Employee> GetEmployeeAsync(int id)
         {
-            return   _db.Employees.Where(i => i.Id == id).FirstOrDefaultAsync();
+            return _db.Employees.Where(i => i.Id == id).FirstOrDefaultAsync();
 
         }
 
         public async Task<int> SaveChangesAsync()
         {
-           return await _db.SaveChangesAsync();
+            return await _db.SaveChangesAsync();
         }
 
         public void Update(Employee employee)
@@ -52,6 +64,6 @@ namespace test.data
     }
 }
 
-        
-       
- 
+
+
+
